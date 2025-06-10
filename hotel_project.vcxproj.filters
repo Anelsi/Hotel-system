@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Hotel">
+      <UniqueIdentifier>{728078a7-0819-4a95-9ee1-c4e8a0127394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PricingStrategies">
+      <UniqueIdentifier>{4882171f-9f72-4eb2-b80d-6d15644296c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hotel">
+      <UniqueIdentifier>{1b3272ad-e4a0-4b15-af86-91b12b56ef2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PricingStrategies">
+      <UniqueIdentifier>{6be8b06c-1bb5-4a54-a6ba-92463bff3927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{d70c5aa7-24d9-4c5e-94ff-38b7bea964cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ReservationsM">
+      <UniqueIdentifier>{23373469-b107-4395-a414-d4768184bd7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ReservationsM">
+      <UniqueIdentifier>{db71a6ea-7732-4f52-be58-43db69aa9daf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Revenue">
+      <UniqueIdentifier>{9c276976-08de-4790-9989-2cdf034399a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Revenue">
+      <UniqueIdentifier>{c3f326f1-b9b0-4945-a183-2392a20336d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Employees">
+      <UniqueIdentifier>{a7153aea-4b67-4c4a-a0ea-95f202e40894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmployeesAccesses">
+      <UniqueIdentifier>{a451d93d-4ae1-45bb-bd93-ada3d0fcbc54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Employees">
+      <UniqueIdentifier>{dd488004-c114-4420-96b5-13bd06038782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EmployeesAccesses">
+      <UniqueIdentifier>{6bdb3288-85bd-4298-958b-4356c39f9fb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{25f4a602-93d8-4bd9-9d7e-c1ea535f2d24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Accommodation.cpp">
+      <Filter>Source Files\Hotel</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files\Hotel</Filter>
+    </ClCompile>
+    <ClCompile Include="OccupancyPricing.cpp">
+      <Filter>Source Files\PricingStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="PricingStrategyFactory.cpp">
+      <Filter>Source Files\PricingStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularPricing.cpp">
+      <Filter>Source Files\PricingStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="SeasonalPricing.cpp">
+      <Filter>Source Files\PricingStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="WeekendPricing.cpp">
+      <Filter>Source Files\PricingStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="addRoomsToFile.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files\ReservationsM</Filter>
+    </ClCompile>
+    <ClCompile Include="Reservation.cpp">
+      <Filter>Source Files\ReservationsM</Filter>
+    </ClCompile>
+    <ClCompile Include="Guest.cpp">
+      <Filter>Source Files\Hotel</Filter>
+    </ClCompile>
+    <ClCompile Include="AddGuest.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="ReservationsManagement.cpp">
+      <Filter>Source Files\ReservationsM</Filter>
+    </ClCompile>
+    <ClCompile Include="RevenueInfo.cpp">
+      <Filter>Source Files\Revenue</Filter>
+    </ClCompile>
+    <ClCompile Include="addTorevenueFail.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
+      <Filter>Source Files\Employees</Filter>
+    </ClCompile>
+    <ClCompile Include="Accountant.cpp">
+      <Filter>Source Files\Employees</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountantAccess.cpp">
+      <Filter>Source Files\EmployeesAccesses</Filter>
+    </ClCompile>
+    <ClCompile Include="ReceptionistAccess.cpp">
+      <Filter>Source Files\EmployeesAccesses</Filter>
+    </ClCompile>
+    <ClCompile Include="Receptionist.cpp">
+      <Filter>Source Files\Employees</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files\Employees</Filter>
+    </ClCompile>
+    <ClCompile Include="ManagerAccess.cpp">
+      <Filter>Source Files\EmployeesAccesses</Filter>
+    </ClCompile>
+    <ClCompile Include="maina2.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="maina.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Accommodation.h">
+      <Filter>Header Files\Hotel</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files\Hotel</Filter>
+    </ClInclude>
+    <ClInclude Include="OccupancyPricing.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="PricingStrategy.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="PricingStrategyFactory.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularPricing.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="SeasonalPricing.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="WeekendPricing.h">
+      <Filter>Header Files\PricingStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumClasses.h">
+      <Filter>Header Files\Hotel</Filter>
+    </ClInclude>
+    <ClInclude Include="Reservation.h">
+      <Filter>Header Files\ReservationsM</Filter>
+    </ClInclude>
+    <ClInclude Include="Guest.h">
+      <Filter>Header Files\Hotel</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files\ReservationsM</Filter>
+    </ClInclude>
+    <ClInclude Include="ReservationsManagement.h">
+      <Filter>Header Files\ReservationsM</Filter>
+    </ClInclude>
+    <ClInclude Include="RevenueInfo.h">
+      <Filter>Header Files\Revenue</Filter>
+    </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>Employees</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountantAccess.h">
+      <Filter>EmployeesAccesses</Filter>
+    </ClInclude>
+    <ClInclude Include="Accountant.h">
+      <Filter>Employees</Filter>
+    </ClInclude>
+    <ClInclude Include="Receptionist.h">
+      <Filter>Employees</Filter>
+    </ClInclude>
+    <ClInclude Include="ReceptionistAccess.h">
+      <Filter>EmployeesAccesses</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagerAccess.h">
+      <Filter>EmployeesAccesses</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Employees</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomCreationHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="GuestCreationHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReservationCreationHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoadHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RevenueReportHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomDeletionHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomerLoyaltyHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+3
+101 70 0 0 Regular 
+102 70 1 1 Occupancy High
+103 70 3 0 Weekend Sunday
+0 70 0 0 null null
+5 100 0 0 null null
