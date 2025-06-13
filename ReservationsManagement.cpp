@@ -1,5 +1,5 @@
 #include "ReservationsManagement.h"
-//#include "ReceptionistAccess.h"
+
 
 void ReservationsManagement::free() {
 	for (int i = 0; i < capacity; i++) {

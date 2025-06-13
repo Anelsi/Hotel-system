@@ -95,7 +95,7 @@ Accommodation& Accommodation::operator=(Accommodation&& other) noexcept {
 
 };
 
-
+//da syzdam li oshte edin addnewRoom(const Room& r)
 
 void Accommodation::addNewRoom(const Room& room) {
 	if (used >= capacity) {

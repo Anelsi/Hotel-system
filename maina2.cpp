@@ -12,154 +12,179 @@
 
 
 void showReceptionistMenu() {
-	int num1;
-	std::cout << "Enter num for desired activity: " << std::endl << "(1)Add room" << std::endl <<
-		"(2)Registrate a guest" << std::endl << "(3)Create Reservation" << std::endl <<
-		"(4)Get available rooms and reservatios"
-		<< std::endl << "(5)Remove Reservatons"  "(6) Stop programm" << "/n";
+	try {
+		int num1;
+		std::cout << "Enter num for desired activity:\n"
+			<< "(1) Add room\n"
+			<< "(2) Registrate a guest\n"
+			<< "(3) Create Reservation\n"
+			<< "(4) Get available rooms and reservations\n"
+			<< "(5) Remove Room\n"
+			<< "(6) Stop program\n";
 
-	
-	while (true) {
+		while (true) {
 
-		std::cin >> num1;
-
-		if (num1 == 1) {
-
-			Accommodation myAccommodation(EnumClasses::MAX_CAPACITY);
-			createAndAddRoom(myAccommodation);
-
-		}
-		else if (num1 == 2) {
-
-			createAndSaveGuest();
-
-		}
-		else if (num1 == 3) {
-			createAndSaveReservation();
-
-
-		}
-		else if (num1 == 4) {
-			Accommodation hotel(EnumClasses::MAX_CAPACITY);
-			loadRoomsFromFile(hotel);
-
-
-			std::cout << "Loaded rooms: " << hotel.getUsed() << "\n";
-
-
-			std::vector<Reservation> allRes = loadReservationsFromFile();
-			std::cout << "Loaded reservations: " << allRes.size() << "\n";
-
-
-			for (const auto& r : allRes) {
-				r.print();
-				std::cout << "------------------------\n";
+			std::cin >> num1;
+			switch (num1) {
+			case 1:
+				try {
+					Accommodation myAccommodation(EnumClasses::MAX_CAPACITY);
+					createAndAddRoom(myAccommodation);
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error adding room: " << e.what() << std::endl;
+				}
+				break;
+			case 2:
+				try {
+					createAndSaveGuest();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error registering guest: " << e.what() << std::endl;
+				}
+				break;
+			case 3:
+				try {
+					createAndSaveReservation();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error creating reservation: " << e.what() << std::endl;
+				}
+				break;
+			case 4:
+				try {
+					Accommodation hotel(EnumClasses::MAX_CAPACITY);
+					loadRoomsFromFile(hotel);
+					std::vector<Reservation> allRes = loadReservationsFromFile();
+					
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error loading or printing rooms/reservations: " << e.what() << std::endl;
+				}
+				break;
+			case 5:
+				try {
+					displayAndDeleteRoomFromFile();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error removing reservation: " << e.what() << std::endl;
+				}
+				break;
+			case 6:
+				return; 
+			default:
+				std::cout << "Invalid option, try again.\n";
 			}
-
-
-
 		}
-		else if (num1 == 5) {
-
-
-			displayAndDeleteRoomFromFile();
-
-		}
-
-		else if (num1 == 6) {
-			break;
-
-
-		}
-		else {
-			break;
-		}
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Critical error in Receptionist menu: " << e.what() << std::endl;
+	}
+	catch (...) {
+		std::cerr << "Unknown error in Receptionist menu.\n";
+	}
+	
 	}
 
 
-};
+
 void showManagerMenu() {
+	try {
+		int num1;
+		std::cout << "Enter num for desired activity:\n"
+			<< "(1) Add room\n"
+			<< "(2) Registrate a guest\n"
+			<< "(3) Create Reservation\n"
+			<< "(4) Get available rooms and reservations\n"
+			<< "(5) Remove room\n"
+			<< "(6) Get revenue info\n";
+		std::cout<< "(7) View client loyalty\n"
+			<< "(8) Exit manager menu\n";
+		    
 
-int num1;
-std::cout << "Enter num for desired activity: " << std::endl << "(1)Add room" << std::endl <<
-"(2)Registrate a guest" << std::endl << "(3)Create Reservation" << std::endl <<
-"(4)Get available rooms and reservatios"
-<< std::endl << "(5)Remove Reservatons" << std::endl << "(6)Get revenue info" << std::endl
-<< "(7)Get view of clent loyalty" << "\n" << "(8) Stop programm" << "\n";
-
-while (true) {
-
-	std::cin >> num1;
-
-	if (num1 == 1) {
-
-		Accommodation myAccommodation(EnumClasses::MAX_CAPACITY);
-		createAndAddRoom(myAccommodation);
-
-	}
-	else if (num1 == 2) {
-
-		createAndSaveGuest();
-
-	}
-	else if (num1 == 3) {
-		createAndSaveReservation();
-
-
-	}
-	else if (num1 == 4) {
-		Accommodation hotel(EnumClasses::MAX_CAPACITY);
-		loadRoomsFromFile(hotel);
-
-		
-		std::cout << "Loaded rooms: " << hotel.getUsed() << "\n";
-
-	
-		std::vector<Reservation> allRes = loadReservationsFromFile();
-		std::cout << "Loaded reservations: " << allRes.size() << "\n";
-
-		
-		for (const auto& r : allRes) {
-			r.print();
-			std::cout << "------------------------\n";
+		while (true) {
+			std::cin >> num1;
+			switch (num1) {
+			case 1:
+				try {
+					Accommodation hotel(EnumClasses::MAX_CAPACITY);
+					createAndAddRoom(hotel);
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error adding room: " << e.what() << std::endl;
+				}
+				break;
+			case 2:
+				try {
+					createAndSaveGuest();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error registering guest: " << e.what() << std::endl;
+				}
+				break;
+			case 3:
+				try {
+					createAndSaveReservation();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error creating reservation: " << e.what() << std::endl;
+				}
+				break;
+			case 4:
+				try {
+					Accommodation hotel(EnumClasses::MAX_CAPACITY);
+					loadRoomsFromFile(hotel);
+					std::vector<Reservation> allRes = loadReservationsFromFile();
+			
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error loading data: " << e.what() << std::endl;
+				}
+				break;
+			case 5:
+				try {
+					displayAndDeleteRoomFromFile();
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Error deleting room: " << e.what() << std::endl;
+				}
+				break;
+			case 6: displayRevenueReportFromFile();
+			case 7: displayCustomerLoyalty();
+			case 8:
+				return;
+			default:
+				std::cout << "Invalid option, try again.\n";
+			}
 		}
-
-
-
 	}
-	else if (num1 == 5) {
-
-
-		displayAndDeleteRoomFromFile();
-
+	catch (const std::exception& e) {
+		std::cerr << "Critical error in Manager menu: " << e.what() << std::endl;
 	}
-	else if (num1 == 6) {
-
-		displayRevenueReportFromFile();
-
+	catch (...) {
+		std::cerr << "Unknown error in Manager menu.\n";
 	}
-	else if (num1 == 7) {
-		displayCustomerLoyalty();
-
-	}
-	else if (num1 == 8) {
-		break;
-		
-	
-	}
-	else {
-		break;
-	}
-}
-
 };
 void showAccountantMenu() {
-	std::cout << "Enter 1 to Get revenue info, press 2  to stop the programm" << "/n";
-	int n;
-	std::cin>>n;
-	if (n == 1) {
-		displayRevenueReportFromFile();
 	
+	try {
+		std::cout << "Enter 1 to get revenue info, 2 to stop the program\n";
+		int n;
+		std::cin >> n;
+		if (n == 1) {
+			try {
+				displayRevenueReportFromFile();
+			}
+			catch (const std::exception& e) {
+				std::cerr << "Error generating revenue report: " << e.what() << std::endl;
+			}
+		}
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Critical error in Accountant menu: " << e.what() << std::endl;
+	}
+	catch (...) {
+		std::cerr << "Unknown error in Accountant menu.\n";
 	}
 
 };
@@ -169,48 +194,56 @@ void showAccountantMenu() {
 int MAX_SIZE = 100;
 
 int main() {
+	try {
+		
+		char* name = new char[MAX_SIZE];
+		char* password = new char[MAX_SIZE];
 
-	
+		std::cout << "Enter username: " << std::endl;
+		std::cin.getline(name, 100);
+		std::cout << std::endl << "Enter password: ";
+		std::cin.getline(password, 100);
+		std::cout << std::endl;
 
-	char* name = new char[MAX_SIZE];
-	char* password = new char[MAX_SIZE];
+		int num;
+		std::cout << "Enter number for your role:\n"
+			<< "1 for Accountant \n"<<"2 for Manager \n"<<"3 for Receptionist\n";
+		std::cin >> num;
 
+		if (num == 1) {
+			showAccountantMenu();
+		}
+		else if (num == 2) {
+			showManagerMenu();
+		}
+		else if (num == 3) {
+			showReceptionistMenu();
+		}
+		else {
+			std::cout << "Invalid role";
+		}
 
+		delete[] name;
+		delete[] password;
+		
 
-	std::cout << "Enter username: " << std::endl;
-	std::cin.getline(name,100);
-	std::cout << std::endl<<"Enter password: ";
-	std::cin.getline(password,100);
-    std::cout<<std::endl;
-
-	int num;
-	std::cout << "Enter number for your role:" << "\n" << "1 for Accountant"
-		<< "2 for Manager" <<"\n"<< "3 for Receptionist" << "\n";
-	std::cin >> num;
-	if (num == 1) {
-	
-		showAccountantMenu();
-	
+		return 0;
 	}
-	else if(num==2){
-	
-		showManagerMenu();
+	catch (const std::ios_base::failure& e) {
+		std::cerr << "I/O error in main(): " << e.what() << std::endl;
 	}
-	else if (num == 3) {
-		showReceptionistMenu();
-	
-	
+	catch (const std::bad_alloc& e) {
+		std::cerr << "Memory allocation failed in main(): " << e.what() << std::endl;
 	}
-	else {
-	
-		std::cout << "Invalid role";
-	
+	catch (const std::exception& e) {
+		std::cerr << "Unhandled exception in main(): " << e.what() << std::endl;
 	}
-	return 0;
-
-
-
-	delete[] name;
-	delete[] password;
-
+	catch (...) {
+		std::cerr << "Unknown error in main()." << std::endl;
+	}
+	return 1;
 }
+
+	
+
+	

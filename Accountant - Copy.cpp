@@ -2,7 +2,10 @@
 #include <iostream>
 #include "RevenueInfo.h"
 
-
+//Accountant::Accountant():Employee("accountant","accountant123",Role::Accountant) {
+//
+//
+//};
 
 Accountant::Accountant(const char* username, const char* password, const Role& role) :Employee(username, password, Role::Accountant) {
 };
@@ -11,7 +14,8 @@ Accountant::Accountant(const char* name) : Employee(name) {};
 
 
 void Accountant::showPermissions()const {
-    
+    //изчисляване и пеглед на приходи
+
     std::cout << "1. Review and analysis of revenues\n";
 
 

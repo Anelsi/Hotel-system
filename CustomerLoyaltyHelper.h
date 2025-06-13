@@ -1,4 +1,4 @@
-﻿// File: CustomerLoyaltyHelper.h
+﻿
 #pragma once
 
 #include <iostream>
@@ -18,31 +18,27 @@ inline void displayCustomerLoyalty() {
         return;
     }
 
-    // 1) Прочитаме всички резервации от файла и ги групираме в map<guestNum, Guest>
     std::map<int, Guest> guestsMap;
     while (true) {
         Reservation tempRes;
-        tempRes.loadFromFile(inFile);  // чете reservationID, isActive, numNights, totalPrice, дати, guest->loadFromFile, room->loadFromFile :contentReference[oaicite:0]{index=0}
+        tempRes.loadFromFile(inFile); 
         if (!inFile) {
-            break;  // край на файла или грешка
+            break;  
         }
 
-        // Взимаме указател към госта, вложен в резервацията
-        Guest* resGuestPtr = tempRes.getGuest();  // връща Guest* :contentReference[oaicite:1]{index=1}
-        int guestNum = resGuestPtr->getGuestNum();  // уникален номер на госта
+        Guest* resGuestPtr = tempRes.getGuest();  
+        int guestNum = resGuestPtr->getGuestNum(); 
 
-        // Ако още нямаме такъв гост в картата, копираме го (без резервации)
         if (guestsMap.find(guestNum) == guestsMap.end()) {
-            // Създаваме копие на самия гост (данни: име, email, phoneNum и пр.)
+            
             Guest guestCopy = *resGuestPtr;
-            // Задаваме му начално 0 резервации
+            
             guestCopy.setReservationsCount(0);
             guestsMap.emplace(guestNum, std::move(guestCopy));
         }
 
-        // Добавяме текущата резервация към списъка на този гост
-        // (tempRes съдържа собствения си обект Guest, но ние клонираме tempRes)
-        guestsMap[guestNum].addReservation(tempRes);  // Guest::addReservation клонира резервацията :contentReference[oaicite:2]{index=2}
+     
+        guestsMap[guestNum].addReservation(tempRes); 
     }
     inFile.close();
 
@@ -51,16 +47,16 @@ inline void displayCustomerLoyalty() {
         return;
     }
 
-    // 2) Преобразуваме map в vector за по-лесна обработка
+    
     std::vector<Guest> guestList;
     guestList.reserve(guestsMap.size());
     for (auto& pair : guestsMap) {
-        // Нека за всеки гост обновим статуса преди показване
-        pair.second.updateGuestStatus();  // базира се на броя резервации :contentReference[oaicite:3]{index=3}
+     
+        pair.second.updateGuestStatus();  
         guestList.push_back(pair.second);
     }
 
-    // 3) Показваме Общ отчет за клиентската лоялност
+    
     std::cout << "\n=== Customer Loyalty Report ===\n\n";
     std::cout << std::left
         << std::setw(20) << "Guest Name"
@@ -72,10 +68,10 @@ inline void displayCustomerLoyalty() {
     std::cout << std::string(67, '-') << "\n";
 
     for (const auto& guest : guestList) {
-        int stays = guest.getTotalStays();    // брой резервации (нощувки) :contentReference[oaicite:4]{index=4}
-        double spent = guest.getTotalSpent();    // общо похарчени BGN :contentReference[oaicite:5]{index=5}
-        const char* status = guest.getGuestStatus();   // "Regular", "Gold" или "Platinium" :contentReference[oaicite:6]{index=6}
-        double discountPct = guest.getDiscount() * 100; // процентно изражение на отстъпката :contentReference[oaicite:7]{index=7}
+        int stays = guest.getTotalStays();    
+        double spent = guest.getTotalSpent();  
+        const char* status = guest.getGuestStatus();  
+        double discountPct = guest.getDiscount() * 100; 
 
         std::cout << std::left
             << std::setw(20) << guest.getName()
@@ -86,7 +82,7 @@ inline void displayCustomerLoyalty() {
             << "\n";
     }
 
-    // 4) Намираме и показваме най-лоялния гост (по брой резервации)
+    
     int maxStays = -1;
     size_t idxMostLoyal = 0;
     for (size_t i = 0; i < guestList.size(); ++i) {

@@ -75,18 +75,18 @@ int countDaysFromEpoch(int day, int month, int year) {
 
     int days = year * 365;
 
-    
+    // Добавяме високосни години
     for (int y = 0; y < year; ++y) {
         if (isLeapYear(y)) {
             days++;
         }
     }
 
-    
+    // Добавяме дни от месеците
     for (int m = 1; m < month; ++m) {
         days += daysInMonth[m - 1];
         if (m == 2 && isLeapYear(year)) {
-            days++; 
+            days++; // февруари във високосна година
         }
     }
 
@@ -98,7 +98,7 @@ int Date::getDifferenceInDays(const Date& other) const {
     int thisDays = countDaysFromEpoch(this->day, this->month, this->year);
     int otherDays = countDaysFromEpoch(other.day, other.month, other.year);
 
-    
+    // Връща абсолютната разлика
     return (thisDays > otherDays) ? (thisDays - otherDays) : (otherDays - thisDays);
 }
 

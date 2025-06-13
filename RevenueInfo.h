@@ -2,8 +2,6 @@
 #include "Manager.h"
 #include <iostream>
 #include <fstream>
-//#include "Date.h"
-//#include "Room.h"
 #include "ReservationsManagement.h"
 
 #include "Accountant.h"
